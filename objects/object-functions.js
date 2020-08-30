@@ -36,7 +36,7 @@ let temp = {
 
 let forecast = function (weather) {
 return
-    todaysweather: `The weather for today is ${temp.farenheit} which is ${temp.celsius}
+    todaysweather: `The weather today is ${temp.farenheit} which is ${temp.celsius}
      in celsius and ${temp.kelvin} in kevin`
 
 }
