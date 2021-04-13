@@ -15,10 +15,8 @@ const todos = [{
     completed: true
 }]
 
-
 const incompleteTodos = todos.filter(function (todo) {
 return !todo.completed
-
 })
 
 const summary = document.createElement('h2')
@@ -32,8 +30,11 @@ todos.forEach(function (todo) {
 })
 
 //listen for new todo creation
-
-document.querySelector('#add-todo').addEventListener('click', function (e) {
-    console.log('Add a new todo...')
+document.querySelector('#add-todo').addEventListener("click", function (e) {
+console.log('Add a new todo...')
 })
 
+
+document.querySelector('#search-text').addEventListener('input', function (e) {
+    console.log(e.target.value)
+})
