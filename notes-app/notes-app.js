@@ -18,7 +18,7 @@ const renderNotes = function (notes, filters) {
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
     })
 
-    document.querySelector('#notes').innerHTML = '<p>TEST</p>'
+    document.querySelector('#notes').innerHTML = " "
 
     filteredNotes.forEach(function (note) {
         const noteEl = document.createElement('p')
@@ -38,7 +38,6 @@ document.querySelector("#search-text").addEventListener("input", function (e) {
     renderNotes(notes, filters)
 })
 
-document.querySelector("#for-fun").addEventListener("change", function (e) {
-console.log(e.target.checked)
+document.querySelector("#filter-by").addEventListener("change", function (e) {
+    console.log(e.target.value)
 })
-
