@@ -1,23 +1,14 @@
-const todos = [{
-    text: 'Order cat food',
-    completed: false
-}, {
-    text: 'Clean kitchen',
-    completed: true
-}, {
-    text: 'Cook food',
-    completed: true
-}, {
-    text: 'Do work',
-    completed: false
-}, {
-    text: 'Exercise',
-    completed: true
-}]
+let todos = []
 
 const filters = {
     searchText: '',
     hideCompleted: false
+}
+
+const todosJSON = localStorage.getItem("todos")
+
+if (todosJSON !== null) {
+    todos = JSON.parse(todosJSON)
 }
 
 const renderTodos = function (todos, filters) {
@@ -52,22 +43,16 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
     renderTodos(todos, filters)
 })
 
-//create a form with a single input for todo text
-//setup a submit handler and cancel the default action
-//add a new item to the todo array with that text data (completed value of false)
-//Rerender the application
-//clear the input field value
-
 document.querySelector("#new-todo").addEventListener("submit", function (e) {
     e.preventDefault()
     todos.push ({
         text: e.target.elements.text.value,
         completed: false
     })
+localStorage.setItem("todos", JSON.stringify(todos))
     renderTodos(todos, filters)
     e.target.elements.text.value = ''
 })
-
 document.querySelector("#hide-completed").addEventListener("change", function (e) {
     filters.hideCompleted = e.target.checked
     renderTodos(todos, filters)
